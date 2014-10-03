@@ -35,7 +35,6 @@ public class ClassTest {
 			System.out.print(retirnType + " " + m.getName());
 			// 获取方法的所有参数
 			System.out.print("(");
-			System.out.print(m.getParameterCount());
 			/*Parameter[] ps = m.getParameters();
 			if(ps.length > 0){
 				for (int i = 0;i < ps.length; i++) {
