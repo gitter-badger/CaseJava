@@ -34,8 +34,9 @@ public class ClassTest {
 			// 获取方法名称
 			System.out.print(retirnType + " " + m.getName());
 			// 获取方法的所有参数
-			/*Parameter[] ps = m.getParameters();
 			System.out.print("(");
+			System.out.print(m.getParameterCount());
+			/*Parameter[] ps = m.getParameters();
 			if(ps.length > 0){
 				for (int i = 0;i < ps.length; i++) {
 					if(i > 0){
@@ -45,8 +46,8 @@ public class ClassTest {
 					// 获取参数的类型和名称
 					System.out.print(p.getType().getSimpleName() + " " + p.getName());
 				}
-			}
-			System.out.print(")");*/
+			}*/
+			System.out.print(")");
 			// 获取异常定义
 			Class<?>[] exs = m.getExceptionTypes();
 			if(exs.length > 0){
