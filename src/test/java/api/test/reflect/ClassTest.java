@@ -1,7 +1,7 @@
 package api.test.reflect;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
+//import java.lang.reflect.Parameter;
 
 import org.junit.After;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class ClassTest {
 			// 获取方法名称
 			System.out.print(retirnType + " " + m.getName());
 			// 获取方法的所有参数
-			Parameter[] ps = m.getParameters();
+			/*Parameter[] ps = m.getParameters();
 			System.out.print("(");
 			if(ps.length > 0){
 				for (int i = 0;i < ps.length; i++) {
@@ -46,7 +46,7 @@ public class ClassTest {
 					System.out.print(p.getType().getSimpleName() + " " + p.getName());
 				}
 			}
-			System.out.print(")");
+			System.out.print(")");*/
 			// 获取异常定义
 			Class<?>[] exs = m.getExceptionTypes();
 			if(exs.length > 0){
