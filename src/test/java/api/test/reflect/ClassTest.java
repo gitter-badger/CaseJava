@@ -72,6 +72,7 @@ public class ClassTest {
 		Method[] ms = Method.class.getDeclaredMethods();
 		for (Method m : ms) {
 			System.out.print(Modifier.toString(m.getModifiers()) + "　" + m.getReturnType().getSimpleName() + " " + m.getName());
+			System.out.println();
 		}
 	}
 	
