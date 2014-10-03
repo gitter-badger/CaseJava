@@ -1,4 +1,4 @@
-package us.cijian.joda;
+package lib.test.joda;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
