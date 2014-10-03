@@ -67,6 +67,13 @@ public class ClassTest {
 		}
 	}
 	
+	@Test
+	public void testGetMethodSupport(){
+		Method[] ms = Method.class.getDeclaredMethods();
+		for (Method m : ms) {
+			System.out.print(Modifier.toString(m.getModifiers()) + "　" + m.getReturnType().getSimpleName() + " " + m.getName());
+		}
+	}
 	
 	@After
 	public void afterTest(){
