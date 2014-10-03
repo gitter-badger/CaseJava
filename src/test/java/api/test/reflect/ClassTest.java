@@ -3,6 +3,8 @@ package api.test.reflect;
 import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
 
+import java.lang.reflect.Modifier;
+
 import org.junit.After;
 import org.junit.Test;
 
@@ -29,6 +31,8 @@ public class ClassTest {
 			} else {
 				System.out.print("* ");
 			}
+			// 还原修饰符
+			System.out.print(Modifier.toString(m.getModifiers()) + "　");
 			// 获取返回值类型
 			String retirnType = m.getReturnType().getCanonicalName();
 			// 获取方法名称
@@ -62,6 +66,7 @@ public class ClassTest {
 			System.out.println();
 		}
 	}
+	
 	
 	@After
 	public void afterTest(){
