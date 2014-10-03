@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
 
 import java.lang.reflect.Modifier;
+import java.lang.reflect.Type;
 
 import org.junit.After;
 import org.junit.Test;
@@ -39,6 +40,13 @@ public class ClassTest {
 			System.out.print(retirnType + " " + m.getName());
 			// 获取方法的所有参数
 			System.out.print("(");
+			Type[] ps = m.getGenericParameterTypes();
+			for (int i = 0; i < ps.length; i++) {
+				if(i > 0){
+					System.out.print(", ");
+				}
+				System.out.print(ps[i].getTypeName() + " arg" + i);
+			}
 			/*Parameter[] ps = m.getParameters();
 			if(ps.length > 0){
 				for (int i = 0;i < ps.length; i++) {
@@ -71,8 +79,7 @@ public class ClassTest {
 	public void testGetMethodSupport(){
 		Method[] ms = Method.class.getDeclaredMethods();
 		for (Method m : ms) {
-			System.out.print(Modifier.toString(m.getModifiers()) + "　" + m.getReturnType().getSimpleName() + " " + m.getName());
-			System.out.println();
+			System.out.println(Modifier.toString(m.getModifiers()) + "　" + m.getReturnType().getSimpleName() + " " + m.getName());
 		}
 	}
 	
