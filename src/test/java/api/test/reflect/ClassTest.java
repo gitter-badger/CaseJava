@@ -2,9 +2,7 @@ package api.test.reflect;
 
 import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
-
 import java.lang.reflect.Modifier;
-import java.lang.reflect.Type;
 
 import org.junit.After;
 import org.junit.Test;
