@@ -40,24 +40,13 @@ public class ClassTest {
 			System.out.print(retirnType + " " + m.getName());
 			// 获取方法的所有参数
 			System.out.print("(");
-			Type[] ps = m.getGenericParameterTypes();
+			Class<?>[] ps = m.getParameterTypes();
 			for (int i = 0; i < ps.length; i++) {
 				if(i > 0){
 					System.out.print(", ");
 				}
-				System.out.print(ps[i].getTypeName() + " arg" + i);
+				System.out.print(ps[i].getCanonicalName() + " arg" + i);
 			}
-			/*Parameter[] ps = m.getParameters();
-			if(ps.length > 0){
-				for (int i = 0;i < ps.length; i++) {
-					if(i > 0){
-						System.out.print(", ");
-					}
-					Parameter p = ps[i];
-					// 获取参数的类型和名称
-					System.out.print(p.getType().getSimpleName() + " " + p.getName());
-				}
-			}*/
 			System.out.print(")");
 			// 获取异常定义
 			Class<?>[] exs = m.getExceptionTypes();
