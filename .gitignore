@@ -12,3 +12,7 @@ release.properties
 .settings/*
 /*~
 **/*~
+
+# IDEA
+xp.iml
+.idea/*
