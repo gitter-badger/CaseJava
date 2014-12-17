@@ -28,12 +28,12 @@ public class JodaTest {
      */
     @Test
     public void testStaticMethod() {
-        System.out.println("系统时间：" + DateTime.now().toString(DF));
+        log.debug("系统时间：" + DateTime.now().toString(DF));
     }
 
     /**
      * 测试 Joda 的成员方法
-     * 特别的说一下 {@link  String#formate(String, Object...)} 方法：
+     * 特别的说一下 {@link String#formate(String, Object...)} 方法：
      *      该方法输入两个参数：第一个参数为格式，格式的描述使用了类似 C 语言的占位符；
      *      其后的变长数组为需要填充到格式（第一个参数中的内容）
      *
@@ -74,29 +74,29 @@ public class JodaTest {
     @Test
     public void testCalc() {
         dt = dt.plusYears(-2);
-        System.out.println("===> 2年前");
-        System.out.println("具体时间：" + dt.toString(DF));
+        log.debug("===> 2年前");
+        log.debug("具体时间：" + dt.toString(DF));
 
         dt = dt.plusDays(4);
-        System.out.println("===> ４天后");
-        System.out.println("具体时间：" + dt.toString(DF));
+        log.debug("===> ４天后");
+        log.debug("具体时间：" + dt.toString(DF));
 
         dt = dt.plusYears(3);
-        System.out.println("===> 3年后");
-        System.out.println("具体时间：" + dt.toString(DF));
-        System.out.println(dt.toString(DF) + (dt.isAfterNow() ? "晚" : "早") + "于当前");
+        log.debug("===> 3年后");
+        log.debug("具体时间：" + dt.toString(DF));
+        log.debug(dt.toString(DF) + (dt.isAfterNow() ? "晚" : "早") + "于当前");
 
         dt = dt.minusDays(400);
-        System.out.println("===> 400天前");
-        System.out.println("具体时间：" + dt.toString(DF));
-        System.out.println(dt.toString(DF) + (dt.isAfterNow() ? "晚" : "早") + "于当前");
-        System.out.println("\n时间比较");
+        log.debug("===> 400天前");
+        log.debug("具体时间：" + dt.toString(DF));
+        log.debug(dt.toString(DF) + (dt.isAfterNow() ? "晚" : "早") + "于当前");
+        log.debug("\n时间比较");
         Days days = Days.daysBetween(DateTime.now(), dt);
         int daysBetween = days.getDays();
-        System.out.println(Math.abs(daysBetween) + "天以" + (daysBetween > 0 ? "后" : "前"));
+        log.debug(Math.abs(daysBetween) + "天以" + (daysBetween > 0 ? "后" : "前"));
         Weeks weeks = days.toStandardWeeks();
         int weeksBetween = weeks.getWeeks();
-        System.out.println(Math.abs(weeksBetween) + "星期以" + (weeksBetween > 0 ? "后" : "前"));
+        log.debug(Math.abs(weeksBetween) + "星期以" + (weeksBetween > 0 ? "后" : "前"));
     }
 
     /**
@@ -105,14 +105,14 @@ public class JodaTest {
     @Test
     public void testSpicalGetter() {
         dt = dt.withTime(0, 0, 0, 0);
-        System.out.println("今天凌晨：" + dt.toString(DF));
+        log.debug("今天凌晨：" + dt.toString(DF));
 
         dt = dt.withTime(23, 59, 59, 999);
-        System.out.println("今天午夜：" + dt.toString(DF));
+        log.debug("今天午夜：" + dt.toString(DF));
     }
 
     @After
     public void afterTest() {
-        System.out.println("---------------------");
+        log.debug("---------------------");
     }
 }
