@@ -111,8 +111,4 @@ public class JodaTest {
         log.debug("今天午夜：" + dt.toString(DF));
     }
 
-    @After
-    public void afterTest() {
-        log.debug("---------------------");
-    }
 }
