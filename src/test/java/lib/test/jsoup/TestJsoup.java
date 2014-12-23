@@ -75,5 +75,12 @@ public class TestJsoup {
 
         System.out.println(doc.text());
     }
+    
+    /***
+     * 修复富文本 HTML 代码的思路
+     * 1. 使用　Jsoup　解析　HTML 代码片段，将会出现一个修正过的版本；
+     * 2. 处理掉一些易干扰的标签，如　font、br、hr...
+     * 3. 针对性的移除一些不必要的属性。
+     */
 
 }
