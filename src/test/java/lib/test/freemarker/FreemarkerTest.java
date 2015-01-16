@@ -35,7 +35,7 @@ public class FreemarkerTest {
 
     @After
     public void after() {
-        System.out.println("\n\nFreemarker result end ====>");
+        System.out.println("\nFreemarker result end ====>");
     }
 
     @Test
