@@ -1,29 +1,31 @@
 package api.test.file;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by Murphy on 1/16/2015.
  */
 public class FileTest {
 
+    private final Logger log = LogManager.getLogger(this.getClass());
+
+    private static final String SYSTEM_TEMP_DIRECTORY_PATH = "java.io.tmpdir";
+
     String dir = Class.class.getResource("/").getPath() + "/ftl";
 
     @Test
     public void testReadByText() throws IOException{
         File ftl = new File(dir + "/a.ftl");
-        if (ftl.exists()) {
+        if (!ftl.exists()) {
             return;
         }
-        FileReader reader = new FileReader(ftl);
-        PrintWriter writer = new PrintWriter(System.out);
-
-        writer.write(reader.read());
+        log.info(ftl.getCanonicalPath());
+        log.info(ftl.getAbsolutePath());
     }
 
 }
