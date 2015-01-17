@@ -9,6 +9,8 @@ import java.io.IOException;
 
 /**
  * Created by Murphy on 1/16/2015.
+ *
+ * Test case about Thinking in Java
  */
 public class FileTest {
 
@@ -16,11 +18,11 @@ public class FileTest {
 
     private static final String SYSTEM_TEMP_DIRECTORY_PATH = "java.io.tmpdir";
 
-    String dir = Class.class.getResource("/").getPath() + "/ftl";
+    private final static String RESOURCE_DIR = Class.class.getResource("/").getPath() + "/ftl";
 
     @Test
     public void testReadByText() throws IOException{
-        File ftl = new File(dir + "/a.ftl");
+        File ftl = new File(RESOURCE_DIR + "/a.ftl");
         if (!ftl.exists()) {
             return;
         }
