@@ -1,7 +1,7 @@
 Java 测试
 ==
 
-[![Build Status](https://travis-ci.org/MurphyL/xp.svg?branch=master)](https://travis-ci.org/MurphyL/xp)
+[![Build Status](https://travis-ci.org/MurphyL/CaseJava.svg?branch=master)](https://travis-ci.org/MurphyL/CaseJava)
 
 	常用的代码测试：算法、设计模式、工具类等等
 
