@@ -33,9 +33,9 @@ public class ClassTest {
 			// 还原修饰符
 			System.out.print(Modifier.toString(m.getModifiers()) + "　");
 			// 获取返回值类型
-			String retirnType = m.getReturnType().getCanonicalName();
+			String returnType = m.getReturnType().getCanonicalName();
 			// 获取方法名称
-			System.out.print(retirnType + " " + m.getName());
+			System.out.print(returnType + " " + m.getName());
 			// 获取方法的所有参数
 			System.out.print("(");
 			Class<?>[] ps = m.getParameterTypes();
