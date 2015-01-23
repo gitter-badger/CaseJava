@@ -69,6 +69,25 @@ public class ClassTest {
 			System.out.println(Modifier.toString(m.getModifiers()) + "　" + m.getReturnType().getSimpleName() + " " + m.getName());
 		}
 	}
+
+	@Test
+	public void testGetAnnotation() {
+		Class currentClass = this.getClass();
+		Method[] ms = currentClass.getDeclaredMethods();
+		for (Method m : ms) {
+			System.out.println(m.getDeclaredAnnotation(Test.class));
+		}
+	}
+
+	@Test
+	public void testGetAnnotationByType() {
+		Class currentClass = this.getClass();
+		Method[] ms = currentClass.getDeclaredMethods();
+		for (Method m : ms) {
+			System.out.println(m.getAnnotation(Test.class));
+		}
+	}
+
 	
 	@After
 	public void afterTest(){
