@@ -16,7 +16,7 @@ public class FileTest {
 
     private final Logger log = LogManager.getLogger(this.getClass());
 
-    private static final String SYSTEM_TEMP_DIRECTORY_PATH = "java.io.tmpdir";
+    /*private*/ static final String SYSTEM_TEMP_DIRECTORY_PATH = "java.io.tmpdir";
 
     private final static String RESOURCE_DIR = Class.class.getResource("/").getPath() + "/ftl";
 

@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Weeks;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 

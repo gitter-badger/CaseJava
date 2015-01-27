@@ -8,6 +8,8 @@ import org.junit.After;
 import org.junit.Test;
 
 public class ClassTest {
+	
+	Class<? extends ClassTest> currentClass = this.getClass();
 
 	@Test
 	public void testGetClassName() {
@@ -72,7 +74,6 @@ public class ClassTest {
 
 	@Test
 	public void testGetAnnotation() {
-		Class currentClass = this.getClass();
 		Method[] ms = currentClass.getDeclaredMethods();
 		for (Method m : ms) {
 			System.out.println(m.getDeclaredAnnotation(Test.class));
@@ -81,7 +82,6 @@ public class ClassTest {
 
 	@Test
 	public void testGetAnnotationByType() {
-		Class currentClass = this.getClass();
 		Method[] ms = currentClass.getDeclaredMethods();
 		for (Method m : ms) {
 			System.out.println(m.getAnnotation(Test.class));

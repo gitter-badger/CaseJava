@@ -1,13 +1,10 @@
 package lib.test.jsoup;
 
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.junit.Test;
+import java.io.IOException;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
-import java.io.IOException;
-import java.util.Iterator;
+import org.junit.Test;
 
 /**
  * Created by murphyl on 12/18/14.
