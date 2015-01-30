@@ -88,7 +88,6 @@ public class ClassTest {
             System.out.printf("JDK %s 支持方法 %s.%s()\n", jvm, method.getClass().getName(), method.getName());
         } catch (Exception e) {
             e.printStackTrace();
-            return;
         }
     }
 
