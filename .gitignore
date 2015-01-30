@@ -14,5 +14,5 @@ release.properties
 **/*~
 
 # IDEA
-xp.iml
+*.iml
 .idea/*
