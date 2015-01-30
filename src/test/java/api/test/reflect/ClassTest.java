@@ -77,16 +77,16 @@ public class ClassTest {
 	@Test
 	public void testGetAnnotation() throws SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
 		Method[] ms = currentClass.getDeclaredMethods();
-		Method getDeclaredAnnotation = null;
-		try {
-			getDeclaredAnnotation = Method.class.getDeclaredMethod("getDeclaredAnnotation");
-		} catch (Exception e) {
-			String jvm = System.getProperty("java.specification.version");
-			String methodName = Method.class.getName() + ".getDeclaredAnnotation()";
-			System.out.println("JDK" + jvm + " 不支持" + methodName + "方法");
-			return;
-		}
+		Object getDeclaredAnnotation = null;
 		for (Method m : ms) {
+			try {
+				getDeclaredAnnotation = m.invoke(m, "getDeclaredAnnotation");
+			} catch (Exception e) {
+				String jvm = System.getProperty("java.specification.version");
+				String methodName = Method.class.getName() + ".getDeclaredAnnotation()";
+				System.out.println("JDK" + jvm + " 不支持" + methodName + "方法");
+				return;
+			}
 			System.out.println(m.invoke(getDeclaredAnnotation, Test.class));
 		}
 	}
