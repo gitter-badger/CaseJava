@@ -1,10 +1,12 @@
 package api.test.reflect;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
 import java.lang.reflect.Modifier;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ClassTest {
@@ -73,21 +75,26 @@ public class ClassTest {
 	}
 
 	@Test
-	public void testGetAnnotation() {
+	public void testGetAnnotation() throws SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
 		Method[] ms = currentClass.getDeclaredMethods();
+		Method getDeclaredAnnotation = null;
+		try {
+			getDeclaredAnnotation = Method.class.getDeclaredMethod("getDeclaredAnnotation");
+		} catch (Exception e) {
+			String jvm = System.getProperty("java.specification.version");
+			String methodName = Method.class.getName() + ".getDeclaredAnnotation()";
+			System.out.println("JDK" + jvm + " 不支持" + methodName + "方法");
+			return;
+		}
 		for (Method m : ms) {
-			System.out.println(m.getDeclaredAnnotation(Test.class));
+			System.out.println(m.invoke(getDeclaredAnnotation, Test.class));
 		}
 	}
-
-	@Test
-	public void testGetAnnotationByType() {
-		Method[] ms = currentClass.getDeclaredMethods();
-		for (Method m : ms) {
-			System.out.println(m.getAnnotation(Test.class));
-		}
+	
+	@Before
+	public void beforeTest(){
+		System.out.println("----------------------");
 	}
-
 	
 	@After
 	public void afterTest(){
