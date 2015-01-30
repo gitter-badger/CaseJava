@@ -77,15 +77,15 @@ public class ClassTest {
     @Test
     public void testGetAnnotation() throws SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         try {
-            Double jvm = Double.valueOf(System.getProperty("java.specification.version"));
+            Double jdkVersion = Double.valueOf(System.getProperty("java.specification.version"));
             Class<?> clazz = Class.class;
             Method method;
-            if (jvm < 1.8) {
+            if (jdkVersion < 1.8) {
                 method = clazz.getDeclaredMethod("getAnnotation", clazz);
             } else {
                 method = clazz.getDeclaredMethod("getDeclaredAnnotation", clazz);
             }
-            System.out.printf("JDK %s 支持方法 %s.%s()\n", jvm, method.getClass().getName(), method.getName());
+            System.out.printf("JDK %s 支持方法 %s.%s()\n", jdkVersion, method.getClass().getName(), method.getName());
         } catch (Exception e) {
             e.printStackTrace();
         }
