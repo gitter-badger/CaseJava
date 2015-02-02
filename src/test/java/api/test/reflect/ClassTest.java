@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
 import java.lang.reflect.Modifier;
+import java.util.StringJoiner;
 
 import org.junit.After;
 import org.junit.Before;
@@ -21,48 +22,48 @@ public class ClassTest {
 
     @Test
     public void testGetClassMethod() {
-        ClassTest ct = new ClassTest();
         // 获取　Package
-        System.out.println(ct.getClass().getPackage().getName());
+        System.out.println(currentClass.getPackage().getName());
         // 获取所有方法，包括从父类继承下来的。obj.getDeclaredMethods()　只获取自身的方法
-        Method[] ms = ct.getClass().getMethods();
+        Method[] ms = currentClass.getMethods();
         for (Method m : ms) {
+            StringJoiner md = new StringJoiner(" ");
             // 获取方法所在类的包名
             String pk = m.getDeclaringClass().getPackage().getName();
             if (pk.equals("java.lang")) {
-                System.out.print("# ");
-            } else {
-                System.out.print("* ");
+                continue;
             }
             // 还原修饰符
-            System.out.print(Modifier.toString(m.getModifiers()) + "　");
+            md.add(Modifier.toString(m.getModifiers()));
             // 获取返回值类型
-            String returnType = m.getReturnType().getCanonicalName();
+            md.add(m.getReturnType().getCanonicalName());
             // 获取方法名称
-            System.out.print(returnType + " " + m.getName());
+            md.add(m.getName());
             // 获取方法的所有参数
-            System.out.print("(");
             Class<?>[] ps = m.getParameterTypes();
-            for (int i = 0; i < ps.length; i++) {
-                if (i > 0) {
-                    System.out.print(", ");
+            if(ps.length > 0){
+                md.add("(");
+                StringJoiner psa = new StringJoiner(", ");
+                for (int i = 0; i < ps.length; i++) {
+                    psa.add(ps[i].getCanonicalName() + " arg" + i);
                 }
-                System.out.print(ps[i].getCanonicalName() + " arg" + i);
+                md.add(psa.toString());
+                md.add(")");
+            } else {
+                md.add("()");
             }
-            System.out.print(")");
             // 获取异常定义
             Class<?>[] exs = m.getExceptionTypes();
             if (exs.length > 0) {
-                System.out.print(" throws ");
-                for (int i = 0; i < exs.length; i++) {
-                    if (i > 0) {
-                        System.out.print(", ");
-                    }
+                md.add("throws");
+                StringJoiner exsa = new StringJoiner(", ");
+                for (Class<?> ex : exs) {
                     // 获取异常的名称
-                    System.out.print(exs[i].getSimpleName());
+                    exsa.add(ex.getSimpleName());
                 }
+                md.add(exsa.toString());
             }
-            System.out.println();
+            System.out.println(md.toString());
         }
     }
 
