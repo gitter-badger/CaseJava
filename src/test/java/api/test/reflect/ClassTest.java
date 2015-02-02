@@ -27,22 +27,21 @@ public class ClassTest {
         // 获取所有方法，包括从父类继承下来的。obj.getDeclaredMethods()　只获取自身的方法
         Method[] ms = currentClass.getMethods();
         for (Method m : ms) {
-            StringJoiner md = new StringJoiner(" ");
             // 获取方法所在类的包名
             String pk = m.getDeclaringClass().getPackage().getName();
             if (pk.equals("java.lang")) {
                 continue;
             }
+            StringJoiner md = new StringJoiner(" ");
             // 还原修饰符
             md.add(Modifier.toString(m.getModifiers()));
             // 获取返回值类型
             md.add(m.getReturnType().getCanonicalName());
-            // 获取方法名称
-            md.add(m.getName());
             // 获取方法的所有参数
             Class<?>[] ps = m.getParameterTypes();
             if(ps.length > 0){
-                md.add("(");
+                // 获取方法名称
+                md.add(m.getName() + "(");
                 StringJoiner psa = new StringJoiner(", ");
                 for (int i = 0; i < ps.length; i++) {
                     psa.add(ps[i].getCanonicalName() + " arg" + i);
@@ -50,7 +49,7 @@ public class ClassTest {
                 md.add(psa.toString());
                 md.add(")");
             } else {
-                md.add("()");
+                md.add(m.getName() + "()");
             }
             // 获取异常定义
             Class<?>[] exs = m.getExceptionTypes();
