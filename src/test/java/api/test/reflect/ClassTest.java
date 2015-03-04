@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 //import java.lang.reflect.Parameter;
 import java.lang.reflect.Modifier;
-import java.util.StringJoiner;
+import us.cijian.utils.StringJoiner;
 
 import org.junit.After;
 import org.junit.Before;

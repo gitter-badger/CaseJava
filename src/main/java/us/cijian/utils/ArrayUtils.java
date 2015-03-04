@@ -1,7 +1,5 @@
 package us.cijian.utils;
 
-import java.util.StringJoiner;
-
 /**
  * Created by luohao4 on 2015/2/2.
  */

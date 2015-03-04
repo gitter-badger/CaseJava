@@ -18,34 +18,40 @@ import java.util.HashMap;
  */
 public class FreemarkerTest {
 
-    private static final Configuration _CFG = new Configuration();
+	private static final Configuration _CFG = new Configuration();
 
-    private static final Writer WRITER = new PrintWriter(System.out);
+	private static final Writer WRITER = new PrintWriter(System.out);
 
-    @BeforeClass
-    public static void beforeClass() throws IOException, TemplateException {
-        File viewDir = new File(Class.class.getResource("/").getPath() + "/ftl");
-        _CFG.setDirectoryForTemplateLoading(viewDir);
-    }
+	@BeforeClass
+	public static void beforeClass() throws IOException, TemplateException {
+		File viewDir = new File(Class.class.getResource("/").getPath() + "/ftl");
+		_CFG.setDirectoryForTemplateLoading(viewDir);
+	}
 
-    @Before
-    public void before() {
-        System.out.println("\nFreemarker result start ====>");
-    }
+	@Before
+	public void before() {
+		System.out.println("\nFreemarker result start ====>");
+	}
 
-    @After
-    public void after() {
-        System.out.println("\nFreemarker result end ====>");
-    }
+	@After
+	public void after() {
+		System.out.println("\nFreemarker result end ====>");
+	}
 
-    @Test
-    public void test() throws IOException, TemplateException {
-        render("a.ftl");
-    }
+	@Test
+	public void test() {
+		render("a.ftl", "c.ftl");
+	}
 
-    public void render(String file) throws IOException, TemplateException {
-        _CFG.getTemplate(file).process(new HashMap<String, Object>(), WRITER);
-    }
-
+	public void render(String... files) {
+		try {
+			for (String file : files) {
+				_CFG.getTemplate(file).process(new HashMap<String, Object>(),
+						WRITER);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
