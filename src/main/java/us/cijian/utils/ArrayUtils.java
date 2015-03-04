@@ -10,21 +10,11 @@ public final class ArrayUtils {
     }
 
     public static final String join(String[] objects, String joiner){
-        if(null == objects){
-            throw new NullPointerException();
-        }
-        if (objects.length == 0) {
-            return "";
-        }
-        StringJoiner sj = new StringJoiner(joiner);
-        for (String object : objects) {
-            sj.add(object);
-        }
-        return sj.toString();
+        return new StringJoiner(joiner, objects).toString();
     }
 
     public static void main(String[] a){
-        StringJoiner sj = new StringJoiner("s");
+        StringJoiner sj = new StringJoiner("-", new String[]{"a", "b", "c", "d"});
         sj.add("a");
         sj.add("b");
         System.out.println(sj.toString());

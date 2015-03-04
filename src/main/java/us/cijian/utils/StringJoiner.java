@@ -1,21 +1,42 @@
 package us.cijian.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class StringJoiner {
+
+	private static final String EMPTY = "";
 
 	private String joiner;
 
 	private List<String> items;
 
 	public StringJoiner() {
-		items = new ArrayList<String>();
+		this(EMPTY);
 	}
 
 	public StringJoiner(String joiner) {
-		this();
+		this(joiner, new ArrayList<String>());
+	}
+
+	public StringJoiner(String joiner, final String[] items) {
+		this(joiner, new ArrayList<String>() {{
+			for (String item : items) {
+				this.add(item);
+			}
+		}});
+	}
+
+	public StringJoiner(String joiner, List<String> items) {
+		if (null == joiner) {
+			joiner = EMPTY;
+		}
+		if (items == null) {
+			items = new ArrayList<String>();
+		}
 		this.joiner = joiner;
+		this.items = items;
 	}
 
 	public void setJoiner(String joiner) {
@@ -28,15 +49,15 @@ public class StringJoiner {
 
 	public String toString() {
 		StringBuffer result = new StringBuffer();
-		if(null == joiner){
+		if (null == joiner) {
 			joiner = result.toString();
 		}
 		if (null != items && items.size() != 0) {
-			for (int i = 0; i < items.size(); i++) {
-				if (i > 0) {
+			for (String item : items) {
+				if (result.length() > 0) {
 					result.append(joiner);
 				}
-				result.append(items.get(i));
+				result.append(item);
 			}
 		}
 		return result.toString();
