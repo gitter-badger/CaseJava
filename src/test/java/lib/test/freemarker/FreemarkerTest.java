@@ -46,8 +46,7 @@ public class FreemarkerTest {
 	public void render(String... files) {
 		try {
 			for (String file : files) {
-				_CFG.getTemplate(file).process(new HashMap<String, Object>(),
-						WRITER);
+				_CFG.getTemplate(file).process(new HashMap<String, Object>(), WRITER);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
