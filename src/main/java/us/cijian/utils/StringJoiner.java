@@ -1,7 +1,6 @@
 package us.cijian.utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class StringJoiner {
@@ -21,11 +20,7 @@ public class StringJoiner {
 	}
 
 	public StringJoiner(String joiner, final String[] items) {
-		this(joiner, new ArrayList<String>() {{
-			for (String item : items) {
-				this.add(item);
-			}
-		}});
+		this(joiner, ArrayUtils.toList(items));
 	}
 
 	public StringJoiner(String joiner, List<String> items) {
