@@ -1,4 +1,4 @@
-package lib.test.freemarker;
+package library.freemarker;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;

@@ -1,4 +1,4 @@
-package api.test.number;
+package api.number;
 
 import java.text.NumberFormat;
 

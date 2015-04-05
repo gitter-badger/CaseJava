@@ -1,4 +1,4 @@
-package lib.test.jsoup;
+package library.jsoup;
 
 import java.io.IOException;
 
