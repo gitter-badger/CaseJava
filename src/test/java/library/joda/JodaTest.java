@@ -32,7 +32,7 @@ public class JodaTest {
 
     /**
      * 测试 Joda 的成员方法
-     * 特别的说一下 {@link String#formate(String, Object...)} 方法：
+     * 特别的说一下 {@link String#format(String, Object...)} 方法：
      *      该方法输入两个参数：第一个参数为格式，格式的描述使用了类似 C 语言的占位符；
      *      其后的变长数组为需要填充到格式（第一个参数中的内容）
      *
