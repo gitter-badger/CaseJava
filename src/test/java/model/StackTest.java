@@ -22,12 +22,9 @@ public class StackTest {
         stack.push("1");
         stack.push("b");
         System.out.println(stack);
-        String top = stack.pop();
-        System.out.println(top);
-        top = stack.pop();
-        System.out.println(top);
-        top = stack.top();
-        System.out.println(top);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.top());
     }
 
 }
