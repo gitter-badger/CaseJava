@@ -21,6 +21,7 @@ public final class ArrayUtils {
     	return let(array, null);
     }
     
+	@SuppressWarnings("unchecked")
 	public static final <T extends Collection<String>> T let(String[] array, Class<T> tClazz){
     	T result = null;
     	if(null == tClazz){
