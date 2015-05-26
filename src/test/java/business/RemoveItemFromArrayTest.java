@@ -1,4 +1,4 @@
-package biz.test;
+package business;
 
 import java.util.ArrayList;
 import java.util.Arrays;

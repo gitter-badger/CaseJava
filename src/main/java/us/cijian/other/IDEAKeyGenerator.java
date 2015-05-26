@@ -74,7 +74,6 @@ public class IDEAKeyGenerator {
 	 * @param name
 	 * @param days
 	 * @param id
-	 * @param prtype
 	 * @return
 	 */
 	public static String MakeKey(String name, int days, int id) {

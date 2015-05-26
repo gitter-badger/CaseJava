@@ -1,4 +1,4 @@
-package lib.test;
+package library;
 
 /**
  * Created by Murphy on 1/8/2015.

@@ -1,4 +1,4 @@
-package api.test.file;
+package api.file;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
