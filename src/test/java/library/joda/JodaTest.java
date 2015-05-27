@@ -3,10 +3,16 @@ package library.joda;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeUtils;
 import org.joda.time.Days;
 import org.joda.time.Weeks;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class JodaTest {
 
@@ -110,4 +116,6 @@ public class JodaTest {
         log.debug("今天午夜：" + dt.toString(DF));
     }
 
+    // Apache Commons Lang 快速趋势分秒的方法
+    // DateUtils.truncate(new Date(), Calendar.DATE);
 }

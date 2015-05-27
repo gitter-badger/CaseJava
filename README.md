@@ -20,3 +20,23 @@ Java 测试
 #### TODO
 
 1. 新增数字格式化的测试代码
+2. 
+
+#### 反序列化测试代码
+
+```java
+    public static void main(String[] args) throws Exception {
+        FileOutputStream fs = new FileOutputStream("d:\\c.txt");
+        ObjectOutputStream os = new ObjectOutputStream(fs);
+        os.writeObject(new CommissionRateResponse(ResponseCode.BADREQUEST, null));
+        os.flush();
+        os.close();
+
+        FileInputStream fis = new FileInputStream("d:\\c.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+
+        CommissionRateResponse o = (CommissionRateResponse)ois.readObject();
+        System.out.println(JSON.toJSONString(o, true));
+        ois.close();
+    }
+```
