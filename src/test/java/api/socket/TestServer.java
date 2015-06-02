@@ -1,11 +1,9 @@
 package api.socket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  * Created by MurphyL on 5/27/2015.
@@ -13,17 +11,10 @@ import java.net.Socket;
 public class TestServer {
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(80);
-        Socket socket = serverSocket.accept();
-        PrintWriter writer = new PrintWriter(socket.getOutputStream());
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        String line = reader.readLine();
-        while (null != line && line.length() > 0) {
-            System.out.println(reader.readLine());
+        ServerSocket socket = new ServerSocket(8800);
+        for (int i = 0; ; i++) {
+            new Thread(new ConnectionThread(i, socket.accept())).start();
         }
-        writer.write(1);
-        writer.flush();
-        writer.close();
     }
 
 }
