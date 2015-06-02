@@ -1,8 +1,6 @@
 package api.socket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -21,10 +19,28 @@ public class ConnectionThread implements Runnable {
 
     public void run() {
         try {
-            Scanner scanner = new Scanner(socket.getInputStream());
-            System.out.println(scanner.useDelimiter("\\A").next());
+            String header = getHeader(socket.getInputStream());
+            System.out.println(header);
+            OutputStream outputStream = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(outputStream);
+            writer.println("Content_Type:text/html");
+            writer.println("Content_Length:" + 2);
+            writer.println("");
+            writer.println("as");
+            writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    private String getHeader(InputStream stream){
+        Scanner reader = new Scanner(stream).useDelimiter("\\A");
+        return reader.hasNext() ? reader.next(): "";
     }
 }
