@@ -6,7 +6,7 @@ Java 测试
 
 ## 其他的一些内容
 
-1. Java8 以下不支持　java.lang.reflect.Method.getParameterTypes() 以及 java.lang.reflect.Method.getParameterCount()；
+1. Java8 以下不支持 java.lang.reflect.Method.getParameterTypes() 以及 java.lang.reflect.Method.getParameterCount()；
 
 
 #### TODO
