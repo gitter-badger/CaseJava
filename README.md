@@ -9,10 +9,6 @@ Java 测试
 1. Java8 以下不支持 java.lang.reflect.Method.getParameterTypes() 以及 java.lang.reflect.Method.getParameterCount()；
 
 
-#### TODO
-
-1. 新增数字格式化的测试代码
-
 #### 反序列化测试代码
 
 ```java
