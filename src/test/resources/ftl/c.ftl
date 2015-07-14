@@ -1,5 +1,5 @@
 <#include "b.ftl">
 
-<@header>
+<@header title="模板引入测试">
     头部
 </@header>
