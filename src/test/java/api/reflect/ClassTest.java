@@ -85,7 +85,8 @@ public class ClassTest {
             } else {
                 method = clazz.getDeclaredMethod("getDeclaredAnnotation", clazz);
             }
-            System.out.printf("JDK %s 支持方法 %s.%s()\n", jdkVersion, method.getClass().getName(), method.getName());
+            String className = method.getClass().getName();
+            System.out.printf("JDK %s 支持方法 %s.%s()\n", jdkVersion, className, method.getName());
         } catch (Exception e) {
             e.printStackTrace();
         }
