@@ -1,5 +1,5 @@
 <#include "b.ftl">
 
 <@header>
-  内部测试
+    头部
 </@header>
