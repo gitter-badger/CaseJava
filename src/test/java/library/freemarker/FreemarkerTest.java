@@ -40,7 +40,7 @@ public class FreemarkerTest {
 
 	@Test
 	public void test() {
-		render("a.ftl", "c.ftl");
+		render("d.ftl");
 	}
 
 	public void render(String... files) {
