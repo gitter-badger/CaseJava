@@ -80,7 +80,7 @@ public class ClassTest {
             Double jdkVersion = Double.valueOf(System.getProperty("java.specification.version"));
             Class<?> clazz = Class.class;
             Method method;
-            if (jdkVersion < 1.8) {
+            if (jdkVersion < 1.8 && jdkVersion > 0) {
                 method = clazz.getDeclaredMethod("getAnnotation", clazz);
             } else {
                 method = clazz.getDeclaredMethod("getDeclaredAnnotation", clazz);
