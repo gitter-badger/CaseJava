@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by murphyl on 12/11/14.
@@ -39,8 +40,10 @@ public class FreemarkerTest {
             Configuration conf = new Configuration();
             conf.setDirectoryForTemplateLoading(viewDir);
             Writer writer = new PrintWriter(System.out);
+            Map<String, String> params = new HashMap<String, String>();
+            params.put("name", "MurphyL");
             for (String file : files) {
-                conf.getTemplate(file).process(new HashMap<String, Object>(), writer);
+                conf.getTemplate(file).process(params, writer);
             }
         } catch (Exception e) {
             e.printStackTrace();
