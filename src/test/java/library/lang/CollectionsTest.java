@@ -33,7 +33,7 @@ public class CollectionsTest {
             }
         });
         for (Integer item : items) {
-            Assert.assertTrue("´óÓÚ 4", item > 4);
+            Assert.assertTrue("å¤§äºŽ 4", item > 4);
         }
     }
 
