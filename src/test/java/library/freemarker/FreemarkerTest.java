@@ -1,11 +1,8 @@
 package library.freemarker;
 
-import com.alibaba.fastjson.JSON;
 import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
@@ -32,7 +29,8 @@ public class FreemarkerTest {
 
     @Test
     public void test() throws IOException {
-        File viewDir = new File(Class.class.getResource("/").getPath() + "/ftl");
+        String tpl = getClass().getResource("/").getPath() + "/ftl";
+        File viewDir = new File(tpl);
         render(viewDir, viewDir.list());
     }
 
