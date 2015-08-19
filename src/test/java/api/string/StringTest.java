@@ -28,7 +28,7 @@ public class StringTest {
          * -----------------------------------
          * canonical representation：标准表示，典型的表示（典式）
          * -----------------------------------
-         * 返回String对象的应用的真实值？(TODO CHECK)
+         * 返回String对象的引用的真实值？(TODO CHECK)
          */
         assertTrue(a.intern() == c.intern());
         assertTrue(c.intern() == d.intern());
