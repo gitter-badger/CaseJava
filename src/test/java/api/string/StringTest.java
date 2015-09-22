@@ -2,7 +2,10 @@ package api.string;
 
 import static org.junit.Assert.*;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+
+import java.util.regex.Pattern;
 
 /**
  * Created by luohao4 on 2015/8/19.
@@ -32,6 +35,12 @@ public class StringTest {
          */
         assertTrue(a.intern() == c.intern());
         assertTrue(c.intern() == d.intern());
+    }
+
+    @Test
+    public void testRegEx() {
+        Pattern reg = Pattern.compile("^-?\\d$");
+        System.out.println(reg.matcher("-1").find());
     }
 
 }
