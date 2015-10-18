@@ -46,6 +46,5 @@ public class TruthTest {
         assertThat(sets).containsNoneOf(4, 5, 6);
         assertThat(sets).containsAnyOf(1, 3, 5, 7);
     }
-    
-    
+
 }
