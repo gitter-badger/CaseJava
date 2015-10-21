@@ -41,9 +41,6 @@ public class FreemarkerTest {
             conf.setDirectoryForTemplateLoading(viewDir);
             Writer writer = new PrintWriter(System.out);
             Map<String, Object> params = new HashMap<String, Object>();
-            params.put("testNull", new HashMap<String, String>(){{
-                put("null", null);
-            }});
             params.put("name", "MurphyL");
             for (String file : files) {
                 conf.getTemplate(file).process(params, writer);
