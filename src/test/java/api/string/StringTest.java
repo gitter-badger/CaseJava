@@ -2,7 +2,6 @@ package api.string;
 
 import static org.junit.Assert.*;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.util.regex.Pattern;
@@ -41,6 +40,51 @@ public class StringTest {
     public void testRegEx() {
         Pattern reg = Pattern.compile("^-?\\d$");
         System.out.println(reg.matcher("-1").find());
+    }
+
+    public void testStringJoinWithPlus() {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            doNothing(i + ":join-plus-" + System.currentTimeMillis());
+        }
+        System.out.print("join-plus:");
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
+    public void testStringJoinWithFormat() {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            doNothing(String.format("%d:join-format-%d", i, System.currentTimeMillis()));
+        }
+        System.out.print("join-format:");
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
+    public void testStringJoinWithBuffer() {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            doNothing(new StringBuffer(i).append(":join-format-").append(System.currentTimeMillis()).toString());
+        }
+        System.out.print("join-buffer:");
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
+    void doNothing(String s){}
+
+    @Test
+    public void testJoinStringAll() {
+        testStringJoinWithFormat();
+        testStringJoinWithPlus();
+        testStringJoinWithBuffer();
+        testStringJoinWithFormat();
+        testStringJoinWithPlus();
+        testStringJoinWithBuffer();
+        testStringJoinWithFormat();
+        testStringJoinWithPlus();
+        testStringJoinWithBuffer();
+        testStringJoinWithFormat();
+        testStringJoinWithPlus();
+        testStringJoinWithBuffer();
     }
 
 }
