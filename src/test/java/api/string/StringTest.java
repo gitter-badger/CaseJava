@@ -82,9 +82,9 @@ public class StringTest {
         testStringJoinWithFormat(100000);
         testStringJoinWithPlus(100000);
         testStringJoinWithBuffer(100000);
-        testStringJoinWithFormat(10000000);
+        /*testStringJoinWithFormat(10000000);
         testStringJoinWithPlus(10000000);
-        testStringJoinWithBuffer(10000000);
+        testStringJoinWithBuffer(10000000);*/
     }
 
 }
