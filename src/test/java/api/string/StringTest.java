@@ -42,30 +42,30 @@ public class StringTest {
         System.out.println(reg.matcher("-1").find());
     }
 
-    public void testStringJoinWithPlus() {
+    public void testStringJoinWithPlus(int count) {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < count; i++) {
             doNothing(i + ":join-plus-" + System.currentTimeMillis());
         }
-        System.out.print("join-plus:");
+        System.out.print("join-plus\t\t");
         System.out.println(System.currentTimeMillis() - start);
     }
 
-    public void testStringJoinWithFormat() {
+    public void testStringJoinWithFormat(int count) {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < count; i++) {
             doNothing(String.format("%d:join-format-%d", i, System.currentTimeMillis()));
         }
-        System.out.print("join-format:");
+        System.out.print("join-format\t\t");
         System.out.println(System.currentTimeMillis() - start);
     }
 
-    public void testStringJoinWithBuffer() {
+    public void testStringJoinWithBuffer(int count) {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < count; i++) {
             doNothing(new StringBuffer(i).append(":join-format-").append(System.currentTimeMillis()).toString());
         }
-        System.out.print("join-buffer:");
+        System.out.print("join-buffer\t\t");
         System.out.println(System.currentTimeMillis() - start);
     }
 
@@ -73,18 +73,18 @@ public class StringTest {
 
     @Test
     public void testJoinStringAll() {
-        testStringJoinWithFormat();
-        testStringJoinWithPlus();
-        testStringJoinWithBuffer();
-        testStringJoinWithFormat();
-        testStringJoinWithPlus();
-        testStringJoinWithBuffer();
-        testStringJoinWithFormat();
-        testStringJoinWithPlus();
-        testStringJoinWithBuffer();
-        testStringJoinWithFormat();
-        testStringJoinWithPlus();
-        testStringJoinWithBuffer();
+        testStringJoinWithFormat(10);
+        testStringJoinWithPlus(10);
+        testStringJoinWithBuffer(10);
+        testStringJoinWithFormat(1000);
+        testStringJoinWithPlus(1000);
+        testStringJoinWithBuffer(1000);
+        testStringJoinWithFormat(100000);
+        testStringJoinWithPlus(100000);
+        testStringJoinWithBuffer(100000);
+        testStringJoinWithFormat(10000000);
+        testStringJoinWithPlus(10000000);
+        testStringJoinWithBuffer(10000000);
     }
 
 }
