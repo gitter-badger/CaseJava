@@ -27,5 +27,5 @@ public class CopyListTest {
         System.out.println(tList.hashCode());
         System.out.println(tList);
     }
-    
+
 }
