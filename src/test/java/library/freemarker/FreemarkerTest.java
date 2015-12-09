@@ -42,6 +42,7 @@ public class FreemarkerTest {
             Writer writer = new PrintWriter(System.out);
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("name", "MurphyL");
+            params.put("array", new String[]{"a", "b", "c"});
             for (String file : files) {
                 conf.getTemplate(file).process(params, writer);
             }

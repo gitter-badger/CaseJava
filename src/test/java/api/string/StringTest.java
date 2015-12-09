@@ -40,6 +40,8 @@ public class StringTest {
     public void testRegEx() {
         Pattern reg = Pattern.compile("^-?\\d$");
         System.out.println(reg.matcher("-1").find());
+        Pattern jsonPattern = Pattern.compile("^\\{\\S\\}");
+        System.out.println(jsonPattern.matcher("{\"a\": 1}").find());
     }
 
     public void testStringJoinWithPlus(int count) {
