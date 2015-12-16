@@ -7,12 +7,13 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by luohao4 on 2015/12/11.
  */
-public class MergeData {
+public class MergeUUData {
 
     /***
      * 表头如下：渠道名,TrackU,帐号类型
@@ -22,7 +23,7 @@ public class MergeData {
      */
 
     public static void main(String[] args) throws Exception {
-        File results = new File(InitConf.getRes("/qq/result"));
+        File results = new File(InitConf.getRes("/uu/results"));
         if (!results.exists()) {
             return;
         }
@@ -39,22 +40,18 @@ public class MergeData {
                         strings[0],
                         strings[1],
                         strings[2],
-                        emptyToZero(strings[3]),
-                        auditProcess(strings[4]),
-                        isEnable(strings[5]),
+                        strings[3],
+                        auditProcess(strings[3])
                 });
             }
         }
-        CSVWriter writer = new CSVWriter(new FileWriter(InitConf.getRes("/result2.csv")));
+        CSVWriter writer = new CSVWriter(new FileWriter(InitConf.getRes("/result3.csv")));
         writer.writeAll(rows);
         writer.flush();
     }
 
     private static String auditProcess(String code) {
-        if(null == code || "null".equals(code)){
-            return "";
-        }
-        if ("0".equals(code)) {
+        if (null == code || "null".equals(code) || "0".equals(code)) {
             return "资料待完善";
         }
         if ("1".equals(code)) {
