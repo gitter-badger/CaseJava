@@ -9,7 +9,7 @@ import java.io.FileWriter;
 /**
  * Created by luohao4 on 2015/12/11.
  */
-public class GenerateSQL {
+public class GenerateqqqqqSQL {
 
     /***
      * 表头如下：渠道名,TrackU,帐号类型
@@ -19,9 +19,9 @@ public class GenerateSQL {
      */
 
     public static void main(String[] args) throws Exception {
-        CSVReader reader = new CSVReader(new FileReader(InitConf.getRes("ids.csv")));
+        CSVReader reader = new CSVReader(new FileReader(InitConf.getRes("qq.csv")));
         java.util.List<String[]> data = reader.readAll();
-        String sql = "select account_type at, union_user_info_id,  %s as trackU, %s as seq from user_data2.alliance_user_info where track_u = ";
+        String sql = "select union_user_info_id, %s seq from user_data2.alliance_user_info where track_u = ";
         File sqlFile;
         FileWriter writer = null;
         StringBuffer sqlMerge = new StringBuffer();
@@ -36,8 +36,8 @@ public class GenerateSQL {
             if (sqlMerge.length() > 0) {
                 sqlMerge.append("\r\n" + " union \r\n");
             }
-            sqlMerge.append(String.format(sql, data.get(i)[0], i) + data.get(i)[0] + " /** " + i + "**/");
-            sqlFile = new File(InitConf.getRes("qq/" + j + ".sql"));
+            sqlMerge.append(String.format(sql, i) + data.get(i)[0] + " /** " + i + "**/");
+            sqlFile = new File(InitConf.getRes("jj/" + j + ".sql"));
             if (!sqlFile.exists()) {
                 sqlFile.createNewFile();
                 writer = new FileWriter(sqlFile);

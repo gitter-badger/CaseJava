@@ -1,4 +1,4 @@
-package com.yhd.union.init;
+package com.yhd.union.init_data;
 
 /**
  * Created by luohao4 on 2015/12/11.
@@ -6,7 +6,7 @@ package com.yhd.union.init;
 public final class InitConf {
 
     protected final static String getRes(String name){
-        return  "d:/init2/" + name;
+        return  "d:/init_data/" + name;
     }
 
 }

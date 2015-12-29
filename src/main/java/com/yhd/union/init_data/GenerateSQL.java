@@ -1,4 +1,4 @@
-package com.yhd.union.init;
+package com.yhd.union.init_data;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -21,7 +21,7 @@ public class GenerateSQL {
     public static void main(String[] args) throws Exception {
         CSVReader reader = new CSVReader(new FileReader(InitConf.getRes("ids.csv")));
         java.util.List<String[]> data = reader.readAll();
-        String sql = "select account_type at, union_user_info_id,  %s as trackU, %s as seq from user_data2.alliance_user_info where track_u = ";
+        String sql = "select %s, track_u, to_char(last_login_time, 'YYYY-MM-DD HH24:MI:ss') last_login_time,union_user_info_id, audit_process, is_enable from user_data2.alliance_user_info where track_u = ";
         File sqlFile;
         FileWriter writer = null;
         StringBuffer sqlMerge = new StringBuffer();
@@ -36,7 +36,7 @@ public class GenerateSQL {
             if (sqlMerge.length() > 0) {
                 sqlMerge.append("\r\n" + " union \r\n");
             }
-            sqlMerge.append(String.format(sql, data.get(i)[0], i) + data.get(i)[0] + " /** " + i + "**/");
+            sqlMerge.append(String.format(sql, i + 1) + data.get(i)[0] + " /** " + (i + 1) + "**/");
             sqlFile = new File(InitConf.getRes("qq/" + j + ".sql"));
             if (!sqlFile.exists()) {
                 sqlFile.createNewFile();
