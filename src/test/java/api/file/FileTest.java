@@ -18,7 +18,7 @@ public class FileTest {
 
     private final static String RESOURCE_DIR = Class.class.getResource("/").getPath() + "/ftl";
 
-    @Test
+    // @Test
     public void testReadByText() throws IOException{
         File ftl = new File(RESOURCE_DIR + "/a.ftl");
         if (!ftl.exists()) {
