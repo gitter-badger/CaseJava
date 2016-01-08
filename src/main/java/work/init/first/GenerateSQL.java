@@ -1,4 +1,4 @@
-package com.yhd.union.init_data;
+package work.init.first;
 
 import au.com.bytecode.opencsv.CSVReader;
 

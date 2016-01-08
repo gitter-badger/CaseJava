@@ -1,4 +1,4 @@
-package com.yhd.union.init_data;
+package work.init.first;
 
 /**
  * Created by luohao4 on 2015/12/11.

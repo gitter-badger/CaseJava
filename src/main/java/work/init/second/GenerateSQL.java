@@ -1,4 +1,4 @@
-package com.yhd.union.init_data;
+package work.init.second;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -9,7 +9,7 @@ import java.io.FileWriter;
 /**
  * Created by luohao4 on 2015/12/11.
  */
-public class GenerateUUSQL {
+public class GenerateSQL {
 
     /***
      * 表头如下：渠道名,TrackU,帐号类型
@@ -19,9 +19,9 @@ public class GenerateUUSQL {
      */
 
     public static void main(String[] args) throws Exception {
-        CSVReader reader = new CSVReader(new FileReader(InitConf.getRes("uuid.csv")));
+        CSVReader reader = new CSVReader(new FileReader(InitConf.getRes("ids.csv")));
         java.util.List<String[]> data = reader.readAll();
-        String sql = "select %s seq, %s id, id rid, audit_process ap from union_db.union_user_info where id = ";
+        String sql = "select account_type at, union_user_info_id,  %s as trackU, %s as seq from user_data2.alliance_user_info where track_u = ";
         File sqlFile;
         FileWriter writer = null;
         StringBuffer sqlMerge = new StringBuffer();
@@ -36,12 +36,8 @@ public class GenerateUUSQL {
             if (sqlMerge.length() > 0) {
                 sqlMerge.append("\r\n" + " union \r\n");
             }
-            if ("0".equals(data.get(i)[1])) {
-                sqlMerge.append(String.format("select %s seq, %s id, '' rid, '' ap", data.get(i)[0], data.get(i)[1]) + " from union_db.union_user_info where id = 771 /** " + (data.get(i)[0]) + " **/");
-            } else {
-                sqlMerge.append(String.format(sql, data.get(i)[0], data.get(i)[1]) + data.get(i)[1] + " /** " + (data.get(i)[0]) + " **/");
-            }
-            sqlFile = new File(InitConf.getRes("uu/" + j + ".sql"));
+            sqlMerge.append(String.format(sql, data.get(i)[0], i) + data.get(i)[0] + " /** " + i + "**/");
+            sqlFile = new File(InitConf.getRes("qq/" + j + ".sql"));
             if (!sqlFile.exists()) {
                 sqlFile.createNewFile();
                 writer = new FileWriter(sqlFile);
