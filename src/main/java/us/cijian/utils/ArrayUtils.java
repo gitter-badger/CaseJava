@@ -41,11 +41,4 @@ public final class ArrayUtils {
 		return result;
     }
 
-    public static void main(String[] a){
-        StringJoiner sj = new StringJoiner("-", new String[]{"a", "b", "c", "d"});
-        sj.add("a");
-        sj.add("b");
-        System.out.println(sj.toString());
-    }
-
 }

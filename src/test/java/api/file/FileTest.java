@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by Murphy on 1/16/2015.
  *
- * Test case about Thinking in Java
+ * Generics case about Thinking in Java
  */
 public class FileTest {
 

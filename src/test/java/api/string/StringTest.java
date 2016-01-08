@@ -78,13 +78,13 @@ public class StringTest {
         testStringJoinWithFormat(10);
         testStringJoinWithPlus(10);
         testStringJoinWithBuffer(10);
-        testStringJoinWithFormat(1000);
+        /*testStringJoinWithFormat(1000);
         testStringJoinWithPlus(1000);
         testStringJoinWithBuffer(1000);
         testStringJoinWithFormat(100000);
         testStringJoinWithPlus(100000);
         testStringJoinWithBuffer(100000);
-        /*testStringJoinWithFormat(10000000);
+        testStringJoinWithFormat(10000000);
         testStringJoinWithPlus(10000000);
         testStringJoinWithBuffer(10000000);*/
     }

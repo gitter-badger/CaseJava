@@ -1,5 +1,7 @@
 package api;
 
+import org.junit.Test;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -8,9 +10,14 @@ import java.util.List;
 /**
  * Created by luohao4 on 2016/1/7.
  */
-public class Test {
+public class Generics {
 
-    public static void main(String[] args) {
+
+    /**
+     * 测试绕过泛型
+     */
+    @Test
+    public void testIgnore() {
         List<String> list = new ArrayList<String>();
         list.add("");
         Class clazz = list.getClass();

@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class MusicRenameTools {
 
-    // @Test
+    // @Generics
     public void test(){
         String flac = "/Users/MurphyL/Music/FLAC/";
         Pattern pattern = Pattern.compile("^- ");
