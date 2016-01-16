@@ -21,6 +21,15 @@ public class TruthTest {
             log.error(e.getMessage());
         }
     }
+
+    @Test
+    public void testIsEquals() {
+        try {
+            assertThat(1).isEqualTo(5);
+        } catch (Error e) {
+            log.error(e.getMessage());
+        }
+    }
     
     
 }
