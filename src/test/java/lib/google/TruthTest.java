@@ -6,6 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by luohao4 on 2016/1/22.
  */
@@ -29,6 +32,17 @@ public class TruthTest {
         } catch (Error e) {
             log.error(e.getMessage());
         }
+    }
+
+    @Test
+    public void testContains() {
+        Set<Integer> sets = new HashSet<Integer>(){{
+            this.add(1);
+            this.add(2);
+            this.add(3);
+        }};
+        assertThat(sets).contains(1);
+        assertThat(sets).containsAllOf(1, 2);
     }
     
     
