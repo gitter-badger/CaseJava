@@ -43,6 +43,8 @@ public class TruthTest {
         }};
         assertThat(sets).contains(1);
         assertThat(sets).containsAllOf(1, 2);
+        assertThat(sets).containsNoneOf(4, 5, 6);
+        assertThat(sets).containsAnyOf(1, 3, 5, 7);
     }
     
     
