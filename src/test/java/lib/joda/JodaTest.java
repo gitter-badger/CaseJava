@@ -23,7 +23,7 @@ public class JodaTest {
     }
 
     /**
-     * 测试　Joda 的静态方法
+     * 测试 Joda 的静态方法
      */
     @Test
     public void testStaticMethod() {
