@@ -19,9 +19,7 @@ public class CollectionsTest {
             this.add(0);
             this.add(1);
             this.add(2);
-            this.add(3);
             this.add(4);
-            this.add(5);
             this.add(6);
             this.add(7);
             this.add(8);
