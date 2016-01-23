@@ -22,12 +22,5 @@ public class QueenTest {
         queen.push("b");
         queen.push("c");
         queen.push("d");
-        System.out.println(queen.toString());
-        System.out.println(queen.pop());
-        System.out.println(queen.pop());
-        System.out.println(queen.toString());
-        System.out.println(queen.pop());
-        System.out.println(queen.top());
-        System.out.println(queen.toString());
     }
 }
