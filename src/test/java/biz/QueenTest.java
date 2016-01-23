@@ -23,4 +23,6 @@ public class QueenTest {
         queen.push("c");
         queen.push("d");
     }
+
+
 }
