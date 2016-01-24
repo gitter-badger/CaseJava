@@ -15,7 +15,7 @@ public class NumberTest {
         Assert.assertEquals("2.346", nf.format(2.34569));
         Assert.assertEquals("11,112.349", nf.format(11112.349));
         DecimalFormat df = new DecimalFormat(",000.##");
-        Assert.assertEquals(",000.##", df.format(111111.234));
+        Assert.assertEquals("111,111.23", df.format(111111.234));
     }
 
     @Test
