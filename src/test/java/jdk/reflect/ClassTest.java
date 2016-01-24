@@ -57,7 +57,6 @@ public class ClassTest {
                 md.add("throws");
                 StringJoiner exsa = new StringJoiner(", ");
                 for (Class<?> ex : exs) {
-                    // 获取异常的名称
                     exsa.add(ex.getSimpleName());
                 }
                 md.add(exsa.toString());
