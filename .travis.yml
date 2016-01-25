@@ -3,4 +3,5 @@ jdk:
   - oraclejdk8
   - oraclejdk7
 notifications:
+  email: false
   slack: imagines:JpE0HBPoqLfP8SlDpRcf81lK
