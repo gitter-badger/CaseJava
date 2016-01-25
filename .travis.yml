@@ -2,3 +2,5 @@ language: java
 jdk:
   - oraclejdk8
   - oraclejdk7
+notifications:
+  slack: imagines:JpE0HBPoqLfP8SlDpRcf81lK
