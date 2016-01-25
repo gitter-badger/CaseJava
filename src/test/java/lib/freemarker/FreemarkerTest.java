@@ -1,4 +1,4 @@
-package library.freemarker;
+package lib.freemarker;
 
 import freemarker.template.Configuration;
 import org.junit.After;

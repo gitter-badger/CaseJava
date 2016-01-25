@@ -1,18 +1,12 @@
-package library.joda;
+package lib.joda;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeUtils;
 import org.joda.time.Days;
 import org.joda.time.Weeks;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class JodaTest {
 

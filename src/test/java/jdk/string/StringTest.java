@@ -1,4 +1,4 @@
-package api.string;
+package jdk.string;
 
 import static org.junit.Assert.*;
 

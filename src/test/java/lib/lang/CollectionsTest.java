@@ -1,4 +1,4 @@
-package library.lang;
+package lib.lang;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Predicate;
