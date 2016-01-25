@@ -1,9 +1,10 @@
 package api;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by luohao4 on 2016/1/12.
+ * Created by luohao4
  */
 public class CloneTest {
 
@@ -15,12 +16,11 @@ public class CloneTest {
         a.b = b;
         try {
             A a1 = (A) a.clone();
-            System.out.println(a1.b.a);
+            Assert.assertEquals(a1.b.a, a.a);
             b.a = 2;
-            System.out.println(a1.b.a);
-            System.out.println(a1.b.b);
+            Assert.assertEquals(a1.b.a, b.a);
             b.b = "as";
-            System.out.println(a1.b.b);
+            Assert.assertSame(a1.b.b, b.b);
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
