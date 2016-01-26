@@ -39,9 +39,9 @@ public class StringTest {
     @Test
     public void testRegEx() {
         Pattern reg = Pattern.compile("^-?\\d$");
-        System.out.println(reg.matcher("-1").find());
+        assertTrue(reg.matcher("-1").find());
         Pattern jsonPattern = Pattern.compile("^\\{\\S\\}");
-        System.out.println(jsonPattern.matcher("{\"a\": 1}").find());
+        assertFalse(jsonPattern.matcher("{\"a\": 1}").find());
     }
 
     public void testStringJoinWithPlus(int count) {
@@ -87,6 +87,11 @@ public class StringTest {
         testStringJoinWithFormat(10000000);
         testStringJoinWithPlus(10000000);
         testStringJoinWithBuffer(10000000);*/
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCommon() {
+        System.out.println(String.valueOf(null));
     }
 
 }
