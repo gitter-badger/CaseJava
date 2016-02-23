@@ -44,7 +44,9 @@ public class FreemarkerTest {
             params.put("name", "MurphyL");
             params.put("array", new String[]{"a", "b", "c"});
             for (String file : files) {
+                System.out.printf("\n%s-------------------\n", file);
                 conf.getTemplate(file).process(params, writer);
+                System.out.printf("\n%s-------------------\n\n", file);
             }
         } catch (Exception e) {
             e.printStackTrace();
