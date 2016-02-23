@@ -25,4 +25,13 @@ public class NumberTest {
         Assert.assertEquals(result, 0);
     }
 
+    @Test
+    public void testDivide() {
+        int a = 1;
+        Integer b = 2;
+        Double c = 3.3;
+
+        System.out.println(c * a/b);
+    }
+
 }
