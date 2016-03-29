@@ -9,12 +9,12 @@ import org.junit.Test;
 /**
  * Created by murphyl on 12/18/14.
  */
-public class TestJsoup {
+public class JsoupTest {
 
 
     @Test
     public void testJsoupGetDocument() throws IOException {
-        Document doc = Jsoup.connect("http://cijian.us/").get();
+        Document doc = Jsoup.connect("http://www.google.com").get();
         System.out.println(doc.getAllElements());
     }
 
