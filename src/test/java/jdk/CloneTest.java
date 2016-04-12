@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by luohao4
+ * Created by MurphyL
  */
 public class CloneTest {
 

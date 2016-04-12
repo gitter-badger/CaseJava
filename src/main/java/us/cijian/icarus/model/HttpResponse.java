@@ -5,7 +5,7 @@ import us.cijian.icarus.utils.StatusCode;
 import java.util.StringJoiner;
 
 /**
- * Created by luohao4 on 2016/3/1.
+ * Created by MurphyL on 2016/3/1.
  */
 public class HttpResponse {
 

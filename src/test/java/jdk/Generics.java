@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by luohao4 on 2016/1/7.
+ * Created by MurphyL on 2016/1/7.
  */
 public class Generics {
 

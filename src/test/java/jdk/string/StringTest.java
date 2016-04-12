@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.regex.Pattern;
 
 /**
- * Created by luohao4 on 2015/8/19.
+ * Created by MurphyL on 2015/8/19.
  */
 public class StringTest {
 

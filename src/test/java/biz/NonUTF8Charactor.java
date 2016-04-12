@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by luohao4 on 2016/1/27.
+ * Created by MurphyL on 2016/1/27.
  */
 public class NonUTF8Charactor {
 

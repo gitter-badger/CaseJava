@@ -1,16 +1,16 @@
 package us.cijian.icarus.handler;
 
-import us.cijian.icarus.model.HttpRequest;
+import com.alibaba.fastjson.JSON;
 import us.cijian.icarus.parser.RequestHeadersParser;
-import us.cijian.icarus.utils.FileUtils;
+import us.cijian.icarus.utils.Headers;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.HashMap;
+import java.util.regex.Pattern;
 
 /**
- * Created by luohao4 on 2016/2/25.
+ * Created by MurphyL on 2016/2/25.
  */
 public class RequestHandler implements Runnable {
 
@@ -22,61 +22,43 @@ public class RequestHandler implements Runnable {
         this.webRoot = webRoot;
     }
 
-    @Override
     public void run() {
-        HttpRequest request = null;
-        PrintWriter writer = null;
-        StringJoiner response = new StringJoiner("\n");
-        try {
-            request = parseRequest();
-            writer = new PrintWriter(socket.getOutputStream());
-            String code = " 200 OK";
-            response.add(request.getProtocol() + code);
-            response.add("Server: Icarus/1.0");
-            response.add("Content-Type: text/html;charset=UTF-8");
-            response.add("Content-Language: chunked");
-            response.add("Date: " + new Date().toString() + "\n");
-            System.out.println(response.toString());
-            writer.write(response.toString());
-            writer.write(new String(FileUtils.readFileAsString(Paths.get(webRoot + request.getURI()))));
-        }catch (IOException e) {
-            if(null != request){
-                System.out.println(request);
-                try {
-                    if (null ==writer){
-                        writer = new PrintWriter(socket.getOutputStream());
-                    }
-                    writer.write(request.getProtocol() + e.getMessage());
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+        if(null == socket || null == webRoot){
+            return;
+        }
+        parseRequest();
+        writeResponse();
+    }
 
-            } else {
-                System.out.println(socket);
-            }
-        } finally {
+
+    private boolean writeResponse(){
+        try {
+            PrintWriter writer = new PrintWriter(socket.getOutputStream());
+            writer.write("ad");
             writer.flush();
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            socket.close();
+            return true;
+        } catch (IOException e) {
+            return false;
         }
     }
 
-    public synchronized HttpRequest parseRequest() throws IOException{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        String line = reader.readLine();
-        Map<String, String> lineItems, headers = new HashMap();
-        do {
-            lineItems = RequestHeadersParser.parse(line);
-            if (null != lineItems) {
-                headers.putAll(lineItems);
-            } else {
-                System.out.println(line);
+    private boolean parseRequest(){
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            Pattern patterns = Pattern.compile(Headers.getHeaderPattern());
+            HashMap<String, String> headers = new HashMap<String, String>();
+            for (String line = reader.readLine(); null != line && line.trim().length() > 0; line = reader.readLine()){
+                if(!patterns.matcher(line).find()){
+                    System.out.println(line);
+                } else {
+                    headers.putAll(RequestHeadersParser.parse(line));
+                }
             }
-            line = reader.readLine();
-        } while (null != line && !line.trim().isEmpty());
-        return new HttpRequest(headers);
+            System.out.println(JSON.toJSONString(headers, true));
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
