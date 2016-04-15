@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
- * Created by luohao4 on 2016/2/25.
+ * Created by luohao4 handle 2016/2/25.
  */
 public interface IHeaderLineParser {
 

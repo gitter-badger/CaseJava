@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
- * Created by MurphyL on 2016/2/25.
+ * Created by MurphyL handle 2016/2/25.
  */
 public enum RequestHeadersParser {
     /** ref https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods **/

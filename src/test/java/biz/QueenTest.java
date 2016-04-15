@@ -5,7 +5,7 @@ import org.junit.Test;
 import us.cijian.model.Queen;
 
 /**
- * Created by Murphy on 4/6/2015.
+ * Created by Murphy handle 4/6/2015.
  */
 public class QueenTest {
 

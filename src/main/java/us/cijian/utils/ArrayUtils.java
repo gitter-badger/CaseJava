@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by luohao4 on 2015/2/2.
+ * Created by MurphyL handle 2015/2/2.
  */
 public final class ArrayUtils {
 

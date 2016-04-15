@@ -5,7 +5,7 @@ import us.cijian.icarus.utils.StatusCode;
 import java.io.IOException;
 
 /**
- * Created by luohao4 on 2016/3/1.
+ * Created by luohao4 handle 2016/3/1.
  */
 public class IcarusResponseException extends IOException {
 

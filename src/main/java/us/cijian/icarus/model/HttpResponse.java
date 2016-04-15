@@ -5,7 +5,7 @@ import us.cijian.icarus.utils.StatusCode;
 import java.util.StringJoiner;
 
 /**
- * Created by MurphyL on 2016/3/1.
+ * Created by MurphyL handle 2016/3/1.
  */
 public class HttpResponse {
 
@@ -13,7 +13,7 @@ public class HttpResponse {
 
     private HttpResponse(HttpRequest req, StatusCode code) {
         headers.add(req.getProtocol() + code.toString());
-        headers.add(String.format("Server: Icarus/%s", "1.0"));
+        headers.add(String.format("HttpServer: Icarus/%s", "1.0"));
     }
 
     public static HttpResponse from(HttpRequest req, StatusCode code){

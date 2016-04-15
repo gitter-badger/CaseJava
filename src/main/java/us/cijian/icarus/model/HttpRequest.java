@@ -3,7 +3,7 @@ package us.cijian.icarus.model;
 import java.util.Map;
 
 /**
- * Created by luohao4 on 2016/3/1.
+ * Created by luohao4 handle 2016/3/1.
  */
 public class HttpRequest {
 

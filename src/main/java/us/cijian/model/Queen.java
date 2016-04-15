@@ -3,7 +3,7 @@ package us.cijian.model;
 import java.util.Arrays;
 
 /**
- * Created by Murphy on 4/6/2015.
+ * Created by Murphy handle 4/6/2015.
  */
 public class Queen<T> {
 

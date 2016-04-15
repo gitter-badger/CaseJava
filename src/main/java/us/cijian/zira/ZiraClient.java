@@ -1,48 +1,70 @@
 package us.cijian.zira;
 
-import com.alibaba.fastjson.JSON;
+import us.cijian.common.Handler;
+import us.cijian.net.ConnectionUtils;
+import us.cijian.net.HttpServer;
+import us.cijian.net.SocketUtils;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.*;
+import java.net.Socket;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
- * Created by luohao4 on 2016/4/14.
+ * Created by MurphyL handle 2016/4/14.
  */
-public class ZiraClient {
+public class ZiraClient implements Handler<Socket> {
 
-    private Map<Integer, String> validateUUIDs = new HashMap<Integer, String>();
+    private final int callbackServerPort = ZiraServer.port + 100;
+
+    Pattern ziraCallbackPattern = Pattern.compile("^ZiraCallback:\\s");
+
+    private String guid;
     private Random random = new Random();
 
-    public void regist(int i) throws Exception {
-        URL url = new URL("http://127.0.0.1:" + ZiraServer.port);
-        URLConnection connection = url.openConnection();
-        connection.setRequestProperty("ZiraConf-Port", (ZiraServer.port + i + 1) + "");
-        String uuid = UUID.randomUUID().toString();
-        connection.setRequestProperty("ZiraConf-Uuid", uuid);
-        connection.setRequestProperty("ZiraConf-Spec", random.nextInt(100) * 1000 + "");
-        validateUUIDs.put(i, uuid);
-        connection.connect();
-        InputStream is = connection.getInputStream();
-        BufferedReader bf = new BufferedReader(new InputStreamReader(is));
+    public synchronized void handle(Socket socket) throws Exception {
+        BufferedReader bf = SocketUtils.getBufferedReaderFromInputStream(socket);
+        String guidCallback = "";
+        StringBuffer sb = new StringBuffer("HTTP/1.1 200 OK\nContent-Type: text/plain; charset=utf-8\n\n");
+        for (String line = bf.readLine(); null != line && line.trim().length() > 0; line = bf.readLine()) {
+            sb.append(line);
+            Matcher callbackMatcher = ziraCallbackPattern.matcher(line);
+            if(callbackMatcher.find()){
+                guidCallback = callbackMatcher.replaceFirst("");
+            }
+        }
+        //System.out.println(sb);
+        System.out.println(guidCallback.equals(guid));
+        System.out.println(guidCallback);
+        System.out.println(guid);
+        SocketUtils.writeOutputStream(socket, sb);
+        socket.close();
+    }
+
+    public void regist(final int i) throws Exception {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("ZiraConf-Port", (ZiraServer.port + i + 1) + "");
+        final String uuid = UUID.randomUUID().toString();
+        params.put("ZiraConf-Guid", uuid);
+        params.put("ZiraConf-Spec", ((random.nextInt(5) + 1) * 10000 + callbackServerPort + i) + "");
+        BufferedReader bf = ConnectionUtils.getBufferedReader("http://127.0.0.1:" + ZiraServer.port, params);
         List<String> lines = new ArrayList<String>();
         for (String line = bf.readLine(); null != line && line.trim().length() > 0; line = bf.readLine()) {
             lines.add(line);
         }
-        System.out.println(JSON.toJSONString(lines, true));
-    }
-
-    public void callback(int i){
-
-    }
-
-    public static void main(String[] args) throws Exception {
-        for (int i = 0; i < 9; i++) {
-            new ZiraClient().regist(i);
-        }
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    System.out.println(callbackServerPort + i);
+                    ZiraClient ziraClient = new ZiraClient();
+                    ziraClient.guid = uuid;
+                    HttpServer.newInstance(callbackServerPort + i + 1, ziraClient);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "ZiraClient-" + i).start();
     }
 
 }

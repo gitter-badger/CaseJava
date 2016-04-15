@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by luohao4 on 2016/4/12.
+ * Created by luohao4 handle 2016/4/12.
  */
 public final class Headers {
 
@@ -45,7 +45,7 @@ public final class Headers {
             "Referer",
             "Refresh",
             "Retry-After",
-            "Server",
+            "HttpServer",
             "Set-Cookie",
             "Status",
             "Strict-Transport-Security",

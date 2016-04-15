@@ -6,7 +6,7 @@ import java.io.*;
 import java.net.ServerSocket;
 
 /**
- * Created by MurphyL on 2016/2/25.
+ * Created by MurphyL handle 2016/2/25.
  * ref https://ruslanspivak.com/lsbaws-part1/
  */
 public final class Icarus {

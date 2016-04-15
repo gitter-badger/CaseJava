@@ -1,7 +1,7 @@
 package us.cijian.icarus.utils;
 
 /**
- * Created by luohao4 on 2016/2/29.
+ * Created by luohao4 handle 2016/2/29.
  * ref https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
  * ref https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
  */
@@ -60,7 +60,7 @@ public enum StatusCode {
      * 429 Too Many Requests
      * 431 Request Header Fields Too Large
      * 451 Unavailable For Legal Reasons
-     * 500 Internal Server Error
+     * 500 Internal HttpServer Error
      * 501 Not Implemented
      * 502 Bad Gateway
      * 503 Service Unavailable
