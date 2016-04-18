@@ -6,6 +6,8 @@ Java 测试
 
 ## 其他的一些内容
 
+[![Join the chat at https://gitter.im/MurphyL/CaseJava](https://badges.gitter.im/MurphyL/CaseJava.svg)](https://gitter.im/MurphyL/CaseJava?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 1. Java8 以下不支持 java.lang.reflect.Method.getParameterTypes() 以及 java.lang.reflect.Method.getParameterCount()；
 
 
